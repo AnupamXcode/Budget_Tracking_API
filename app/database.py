@@ -1,28 +1,16 @@
-"""
-Database configuration and session management
-"""
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
+DATABASE_URL = "sqlite:///./test.db"  # Change this to your actual database connection string
 
-# Database URL
-DATABASE_URL = f"postgresql://{os.getenv('DB_USER', 'user')}:{os.getenv('DB_PASSWORD', 'password')}@{os.getenv('DB_HOST', 'localhost')}:{os.getenv('DB_PORT', 5432)}/{os.getenv('DB_NAME', 'budget_db')}"
-
-# Create engine
-engine = create_engine(DATABASE_URL, echo=False)
-
-# Create session factory
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+Base = declarative_base()
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Base class for models
-Base = declarative_base()
+# Dependency to get DB session
 
 def get_db():
-    """Dependency to get database session"""
     db = SessionLocal()
     try:
         yield db
