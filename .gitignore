@@ -1,0 +1,59 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+_build/
+develop-eggs/
+egg-info/
+built-distributions/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.coverage
+*.py,cover
+
+# Translations
+*.mo
+*.pot
+
+# Flask instance folder
+instance/
+.settings/
+
+# Scrapy stuff: defines a default user agent
+.user_agent
+
+# mypy
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# pytype
+.pytype/
+
+# pyre type checker
+.pyre/
+
+# pipenv
+Pipfile.lock
+
+# virtualenv
+venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
